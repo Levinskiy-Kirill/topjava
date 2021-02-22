@@ -14,6 +14,12 @@
         .excess {
             color: red;
         }
+
+        .filter__row_input,
+        .filter__row_title {
+            display: inline-block;
+            width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +27,35 @@
     <h3><a href="index.html">Home</a></h3>
     <hr/>
     <h2>Meals</h2>
+
+    <form action="meals" method="get">
+        <input type="hidden" name="action" value="filter">
+
+        <div class="filter">
+            <div class="filter__row">
+                <span class="filter__row_title">From date (inclusive)</span>
+                <input class="filter__row_input" name="startDate" type="date" value="${param.startDate}">
+            </div>
+
+            <div class="filter__row">
+                <span class="filter__row_title">To date (inclusive)</span>
+                <input class="filter__row_input" name="endDate" type="date" value="${param.endDate}">
+            </div>
+
+            <div class="filter__row">
+                <span class="filter__row_title">From time (inclusive)</span>
+                <input class="filter__row_input" name="startTime" type="time" value="${param.startTime}">
+            </div>
+
+            <div class="filter__row">
+                <span class="filter__row_title">To time (exclusive)</span>
+                <input class="filter__row_input" name="endTime" type="time" value="${param.endTime}">
+            </div>
+
+            <button type="submit">Filter</button>
+        </div>
+    </form>
+
     <a href="meals?action=create">Add Meal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">

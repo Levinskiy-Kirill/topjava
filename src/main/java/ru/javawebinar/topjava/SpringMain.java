@@ -3,12 +3,9 @@ package ru.javawebinar.topjava;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.model.Role;
-import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.service.MealService;
 import ru.javawebinar.topjava.web.SecurityUtil;
 import ru.javawebinar.topjava.web.meal.MealRestController;
-import ru.javawebinar.topjava.web.user.AdminRestController;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -31,10 +28,10 @@ public class SpringMain {
             System.out.println(mealController.get(5));
 
             System.out.println(" \nSave new meal");
-            mealController.save(new Meal(LocalDateTime.now(), "New meal", 456));
+            mealController.create(new Meal(LocalDateTime.now(), "New meal", 456));
 
             System.out.println("Update meal with id = 6");
-            mealController.save(new Meal(6, LocalDateTime.now(), "updated meal", 1456));
+            mealController.update(new Meal(6, LocalDateTime.now(), "updated meal", 1456), 6);
 
             System.out.println("Delete meal with id = 4");
             mealController.delete(4);
